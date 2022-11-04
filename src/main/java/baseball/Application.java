@@ -1,7 +1,10 @@
 package baseball;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class Application {
@@ -15,9 +18,20 @@ public class Application {
         if (!isDigit(input)) {
             throw new IllegalArgumentException("입력값에는 숫자(0~9)만 포함되어야 합니다. ");
         }
-    }
 
+    }
     private static boolean isDigit(String input) {
         return DIGIT_PATTERN.matcher(input).matches();
+    }
+
+    public static List<Integer> getRandomDigit(){
+        List<Integer> digits = new ArrayList<>();
+        while (digits.size() < 3) {
+            int randomNumber = Randoms.pickNumberInRange(1, 9);
+            if (!digits.contains(randomNumber)) {
+                digits.add(randomNumber);
+            }
+        }
+        return digits;
     }
 }
