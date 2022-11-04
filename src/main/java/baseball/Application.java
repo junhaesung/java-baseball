@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ * 숫자 야구 앱
+ */
 public class Application {
     private static final Pattern DIGIT_PATTERN = Pattern.compile("\\d[1,3]");
 
@@ -20,11 +23,21 @@ public class Application {
         }
 
     }
+
+    /**
+     * 주어진 문자열이 3자리 숫자로만 이루어져있는지 검사
+     * @param input 입력한 정답 후보
+     * @return 주어진 문자열이 3자리 숫자로만 이루어져있는지 여부
+     */
     private static boolean isDigit(String input) {
         return DIGIT_PATTERN.matcher(input).matches();
     }
 
-    public static List<Integer> getRandomDigit(){
+    /**
+     * 숫자야구 정답을 생성
+     * @return 크기가 3인 숫자 리스트
+     */
+    public static List<Integer> getAnswer(){
         List<Integer> digits = new ArrayList<>();
         while (digits.size() < 3) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);

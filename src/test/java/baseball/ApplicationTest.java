@@ -46,13 +46,13 @@ class ApplicationTest extends NsTest {
     @DisplayName("랜덤 3자리 숫자를 잘 생성한다")
     @Test
     void 컴퓨터_숫자_테스트(){
-        assertThat(Application.getRandomDigit()).hasSize(3);
+        assertThat(Application.getAnswer()).hasSize(3);
     }
 
     @DisplayName("랜덤 3자리 숫자에는 중복이 포함되지 않는다")
     @Test
     void 컴퓨터_숫자_중복_테스트(){
-        List<Integer> randomNumber= Application.getRandomDigit();
+        List<Integer> randomNumber= Application.getAnswer();
         assertThat(Sets.newHashSet(randomNumber)).hasSize(3);
     }
 
