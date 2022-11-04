@@ -1,6 +1,7 @@
 package baseball;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -24,6 +25,15 @@ class ApplicationTest extends NsTest {
     void 예외_테스트() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("1234"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("입력값에 숫자가 아닌 문자가 포함되면 예외 발생")
+    @Test
+    void testArgumentContainsCharacter() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("12a"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
